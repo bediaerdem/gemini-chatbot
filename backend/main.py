@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from services.gemini import generate_response
+
 
 app = FastAPI()
 
@@ -27,13 +29,17 @@ class ChatRequest(BaseModel):
 
 @app.get("/")
 def root():
-    return {"message": "Backend çalışıyor 🚀"}
+    return {
+        "message": "Backend çalışıyor !!!!!!!!!!"
+    }
 
 
 
 @app.post("/chat")
 def chat(request: ChatRequest):
 
+    response = generate_response(request.message)
+
     return {
-        "reply": f"Mesajını aldım: {request.message}"
+        "reply": response
     }
