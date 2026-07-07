@@ -1,6 +1,6 @@
 # Gemini Chatbot
 
-React + FastAPI + Gemini API kullanılarak geliştirilen yapay zeka destekli chatbot uygulaması.
+An AI-powered chatbot application built with React and FastAPI, integrated with the Gemini API to provide intelligent conversational responses.
 
 ## Technologies
 
