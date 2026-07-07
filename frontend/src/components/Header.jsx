@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <header>
+    <header className="chat-header">
       <h1>Gemini Chatbot</h1>
     </header>
   );

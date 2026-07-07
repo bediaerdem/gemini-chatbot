@@ -1,16 +1,31 @@
+import { useEffect, useRef } from "react";
 import Message from "./Message";
 import ChatInput from "./ChatInput";
+import "../styles/chat.css";
 
-function ChatWindow() {
+function ChatWindow({ messages, setMessages }) {
+
+  const messagesRef = useRef(null);
+
+  useEffect(() => {
+    const el = messagesRef.current;
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }, [messages]);
+
   return (
-    <main>
-      <Message 
-        text="Merhaba, sana nasıl yardımcı olabilirim?"
-        sender="bot"
-      />
+    <div className="chat-window">
 
-      <ChatInput />
-    </main>
+      <div className="messages" ref={messagesRef}>
+        {messages.map((message, index) => (
+          <Message key={index} text={message.text} sender={message.sender} />
+        ))}
+      </div>
+
+      <ChatInput setMessages={setMessages} />
+
+    </div>
   );
 }
 

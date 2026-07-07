@@ -1,0 +1,122 @@
+:root {
+	--chat-base: #240124; /* requested base */
+	--chat-700: #1b0019;
+	--chat-500: #5a1b5a;
+	--chat-300: #9b5bd1;
+	--chat-100: #efe7f6;
+	--chat-user: linear-gradient(180deg, #8b4fd6, #5b0f73);
+	--chat-bot-bg: #ffffff;
+	--chat-bot-border: rgba(36,1,36,0.08);
+}
+
+.chat-header {
+	padding: 18px 20px;
+	text-align: left;
+	border-bottom: 1px solid var(--border, rgba(0,0,0,0.06));
+}
+
+.chat-header h1 {
+	margin: 0;
+	font-size: 20px;
+	color: var(--chat-base);
+}
+
+.chat-window {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 240px);
+	max-height: 78vh;
+	gap: 8px;
+	box-sizing: border-box;
+	background: transparent;
+}
+
+.messages {
+	flex: 1 1 auto;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 18px;
+}
+
+.message-row {
+	display: flex;
+	align-items: flex-end;
+}
+
+.message-row.bot {
+	justify-content: flex-start;
+}
+
+.message-row.user {
+	justify-content: flex-end;
+}
+
+.message-bubble {
+	max-width: 76%;
+	padding: 10px 14px;
+	font-size: 15px;
+	line-height: 1.35;
+	box-shadow: var(--shadow, 0 6px 18px rgba(16,14,20,0.06));
+}
+
+.message-row.bot .message-bubble {
+	background: var(--chat-bot-bg);
+	color: var(--text-h, #08060d);
+	border: 1px solid var(--chat-bot-border);
+	border-top-left-radius: 6px;
+	border-top-right-radius: 18px;
+	border-bottom-right-radius: 18px;
+	border-bottom-left-radius: 18px;
+}
+
+.message-row.user .message-bubble {
+	background: var(--chat-user);
+	color: #fff;
+	border-radius: 18px 6px 18px 18px;
+}
+
+.chat-input {
+	display: flex;
+	gap: 8px;
+	padding: 12px 16px;
+	align-items: center;
+	border-top: 1px solid var(--border, rgba(0,0,0,0.06));
+}
+
+.chat-input input {
+	flex: 1 1 auto;
+	padding: 10px 14px;
+	border-radius: 999px;
+	border: 1px solid rgba(36,1,36,0.12);
+	background: rgba(255,255,255,0.02);
+	outline: none;
+	color: inherit;
+}
+
+.chat-input input::placeholder {
+	color: #8b8091;
+}
+
+.send-btn {
+	background: var(--chat-base);
+	color: #fff;
+	border: none;
+	padding: 9px 14px;
+	border-radius: 999px;
+	cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--chat-bot-bg: #16161a;
+		--chat-bot-border: rgba(255,255,255,0.03);
+	}
+	.chat-header h1 {
+		color: var(--chat-300);
+	}
+	.send-btn {
+		filter: brightness(1.05);
+	}
+}
