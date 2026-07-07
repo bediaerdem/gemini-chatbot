@@ -1,7 +1,15 @@
+import Message from "./Message";
+import ChatInput from "./ChatInput";
+
 function ChatWindow() {
   return (
     <main>
-      <p>Chat ekranı burada olacak.</p>
+      <Message 
+        text="Merhaba, sana nasıl yardımcı olabilirim?"
+        sender="bot"
+      />
+
+      <ChatInput />
     </main>
   );
 }
