@@ -1,9 +1,15 @@
-function Message({ text, sender }) {
+function Message({ text, sender, loading }) {
   return (
     <div className={`message-row ${sender}`}>
+      
       <div className="message-bubble">
-        {text}
+        {loading ? (
+          <span> Gemini düşünüyor...</span>
+        ) : (
+          text
+        )}
       </div>
+
     </div>
   );
 }

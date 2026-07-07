@@ -27,19 +27,28 @@ function ChatInput({ setMessages }) {
 
     setInput("");
 
-
+  // Loading mesajı ekle
+  setMessages((prev) => [
+    ...prev,
+    {
+      text: "",
+      sender: "bot",
+      loading: true,
+    },
+  ]);
     // Backend'e gönder ve cevabı al
     const reply = await sendMessageToBackend(userMessage);
 
 
     // Bot cevabını ekle
-    setMessages((prev) => [
-      ...prev,
-      {
-        text: reply,
-        sender: "bot",
-      },
-    ]);
+      // Loading mesajını kaldır ve gerçek cevabı ekle
+  setMessages((prev) => [
+    ...prev.filter((message) => !message.loading),
+    {
+      text: reply,
+      sender: "bot",
+    },
+  ]);
 
   };
 

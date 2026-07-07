@@ -19,7 +19,12 @@ function ChatWindow({ messages, setMessages }) {
 
       <div className="messages" ref={messagesRef}>
         {messages.map((message, index) => (
-          <Message key={index} text={message.text} sender={message.sender} />
+          <Message 
+            key={index}
+            text={message.text}
+            sender={message.sender}
+            loading={message.loading}
+          />
         ))}
       </div>
 
