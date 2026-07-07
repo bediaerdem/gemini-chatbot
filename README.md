@@ -7,3 +7,4 @@ React + FastAPI + Gemini API kullanılarak geliştirilen yapay zeka destekli cha
 - React
 - FastAPI
 - Google Gemini API
+
